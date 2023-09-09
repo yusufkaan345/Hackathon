@@ -1,4 +1,4 @@
-namespace Transportathon.Models
+﻿namespace Transportathon.Models
 {
     public class ErrorViewModel
     {

@@ -26,6 +26,6 @@ namespace Transportathon.Models
 
         public string Role { get; set; } // Kullanıcının rolünü tutmak için
 
-        // Diğer kullanıcı özellikleri eklenebilir (örneğin iletişim bilgileri vb.).
+        // Diğer kullanıcı özellikleri eklenebilir (örneğin, iletişim bilgileri vb.).
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Transportathon.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
-        public IActionResult Index()
+        public IActionResult SignUp()
         {
             return View();
         }
