@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Transportathon.styles.css" asp-append-version="true" />
+
+
+
 </head>
 <body>
     <header>
@@ -23,6 +26,12 @@
                             <a class="nav-link text-dark btn btn-outline-secondary px-3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                        
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Sağa kaydırmak için ml-auto sınıfını kullanıyoruz -->
+                        <li class="nav-item mx-3">
+                            <a class="btn btn-success" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+                        </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <!-- Sağa kaydırmak için ml-auto sınıfını kullanıyoruz -->
