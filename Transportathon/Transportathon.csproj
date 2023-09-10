@@ -11,4 +11,11 @@
     <PackageReference Include="FontAwesome" Version="4.7.0" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\images\" />
+  </ItemGroup>
+
+
+
 </Project>
