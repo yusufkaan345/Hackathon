@@ -8,5 +8,9 @@ namespace Transportathon.Controllers
         {
             return View();
         }
+        public IActionResult LogIn()
+        {
+            return View();
+        }
     }
 }

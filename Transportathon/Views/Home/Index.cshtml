@@ -1,8 +1,66 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <!-- Bootstrap CSS dosyasını projenize dahil edin -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <style>
+        /* Özel stiller */
+        body{
+            background-color: #D3F3B7;
+        }
+        .container{
+         
+            height:87vh;
+        }
+        .landing {
+            
+            padding: 20px;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .big-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .small-title {
+            font-size: 24px;
+        }
+
+        .image {
+            max-width: 100%;
+            height: auto;
+            border-radius:15px;
+        }
+
+        
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            
+            <div class="col-md-6 custom-lg-margin custom-sm-margin   ">
+                <div class="landing text-center p-5">
+                    <h1 class="big-title pt">Welcome to Transportathon Hechathon </h1>
+                    <h2 class="small-title">Harika bir deneyim için bize katılın</h2>
+                    <a asp-controller="Account" asp-action="SignUp" class="btn btn-success mt-5">Get Started!</a>
+                </div>
+            </div>
+            <div class="col-md-6 custom-lg-margin custom-sm-margin   ">
+                <div class="landing  text-center p-5">
+                    <img class="image" src="~/lib/images/transport.jpeg" alt="Kamyon Resmi">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JavaScript dosyasını projenize dahil edin -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

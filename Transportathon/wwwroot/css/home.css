@@ -1,0 +1,11 @@
+﻿@media (min-width: 992px) {
+    .custom-lg-margin {
+        margin-top: 100px;
+    }
+}
+/* SM ekranlar için */
+@media (max-width: 992px) {
+    .custom-sm-margin {
+        margin-top: 20px;
+    }
+}
