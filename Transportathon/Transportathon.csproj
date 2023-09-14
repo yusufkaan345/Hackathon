@@ -24,8 +24,11 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 
+
   <ItemGroup>
     <Folder Include="wwwroot\lib\images\" />
   </ItemGroup>
+
+
 
 </Project>
