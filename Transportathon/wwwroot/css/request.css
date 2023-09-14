@@ -1,0 +1,19 @@
+﻿body {
+    background-color: #D3F3B7;
+}
+.roundedborder {
+    border-radius: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+@media (max-width: 768px) {
+    .responsive {
+        height: 150px; /* İstediğiniz yüksekliği ayarlayın */
+        width: 300px; /* İstediğiniz genişliği ayarlayın */
+        font-size:20px;
+       
+    }
+}
