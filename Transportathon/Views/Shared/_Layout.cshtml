@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,24 +26,32 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark btn btn-outline-secondary px-3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (@ViewBag.UserRole == "customer")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark  px-3" asp-area="" asp-controller="Job" asp-action="Createjob">Create Job</a>
+                                </li>
+                            }
+                            @if (@ViewBag.UserRole == "driver")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link  text-dark  px-3" asp-area="" asp-controller="Job" asp-action="Createjob">Apply Job</a>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a class="nav-link  text-dark  px-3" asp-area="" asp-controller="Job" asp-action="Publishedjob">See Jobs</a>
+                            </li>
+                            
+
+                        }
+                       
+                       
                        
                     </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Sağa kaydırmak için ml-auto sınıfını kullanıyoruz -->
-                        <li class="nav-item mx-3">
-                            <a class="btn btn-success" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Sağa kaydırmak için ml-auto sınıfını kullanıyoruz -->
-                        <li class="nav-item mx-3">
-                            <a class="btn btn-success" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="LogIn">Log In</a>
-                        </li>
-                    </ul>
                 </div>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
@@ -59,3 +68,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+

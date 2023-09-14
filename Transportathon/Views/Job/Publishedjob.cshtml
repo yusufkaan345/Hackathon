@@ -1,0 +1,22 @@
+﻿
+@model List<CreateJob>
+<h2>Published Jobs</h2>
+
+<div class="row">
+    @foreach (var job in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">@job.ItemName</h5>
+                    <p class="card-text">Description: @job.Definition</p>
+                    <p class="card-text">Weight: @job.Weight</p>
+                    <p class="card-text">Price: @job.Price</p>
+                    <p class="card-text">Vehicle Type: @job.VehicleType</p>
+                    <p class="card-text">Transport Date: @job.TransportDate.ToShortDateString()</p>
+                    <a class="btn btn-primary" href="#">View More...</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

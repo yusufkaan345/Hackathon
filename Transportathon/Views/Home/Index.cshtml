@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Transportathon.Areas.Identity.Data;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -49,12 +55,24 @@
                 <div class="landing text-center p-5">
                     <h1 class="big-title pt">Welcome to Transportathon Hechathon </h1>
                     <h2 class="small-title">Harika bir deneyim için bize katılın</h2>
-                    <a asp-controller="Account" asp-action="SignUp" class="btn btn-success mt-5">Get Started!</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class="nav-item">
+                            <a asp-controller="Request" asp-action="RequestPage" class="btn btn-success mt-5">Get Started!</a>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav-item mx-2">
+                            <a class="btn btn-success mt-5 text-light" id="register" asp-area="Identity" asp-page="/Account/Register">Get Start!</a>
+                        </ul>  
+                    }
+                    @*<a asp-controller="Account" asp-action="SignUp" class="btn btn-success mt-5">Get Started!</a>*@
                 </div>
             </div>
             <div class="col-md-6 custom-lg-margin custom-sm-margin   ">
                 <div class="landing  text-center p-5">
-                    <img class="image" src="~/lib/images/transport.jpeg" alt="Kamyon Resmi">
+                    <img class="image" src="~/lib/images/transport.jpeg" alt="Otoban Resmi ">
 
                 </div>
             </div>

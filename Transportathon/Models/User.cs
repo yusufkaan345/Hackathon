@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace Transportathon.Models
 {
@@ -24,8 +25,6 @@ namespace Transportathon.Models
         [StringLength(100, MinimumLength = 6, ErrorMessage = "Şifre en az 6 karakter olmalıdır.")]
         public string Password { get; set; }
 
-        public string Role { get; set; } // Kullanıcının rolünü tutmak için
-
-        // Diğer kullanıcı özellikleri eklenebilir (örneğin, iletişim bilgileri vb.).
+        public string Role { get; set; } 
     }
 }

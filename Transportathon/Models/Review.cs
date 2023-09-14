@@ -14,9 +14,11 @@ namespace Transportathon.Models
         [StringLength(500, ErrorMessage = "Yorum en fazla 500 karakter olmalıdır.")]
         public string Comment { get; set; }
 
-        public int UserId { get; set; } // Değerlendirmeyi yapan kullanıcının kimliği
+        public string TaskId { get; set; }
 
-        public int DriverId { get; set; } // Değerlendirilen şoförün kimliği
+        public string UserId { get; set; } // Değerlendirmeyi yapan kullanıcının kimliği
+
+        public string DriverId { get; set; } // Değerlendirilen şoförün kimliği
         public  Driver Driver { get; set; } // Değerlendirilen şoförü ilişkilendirmek için
 
       
