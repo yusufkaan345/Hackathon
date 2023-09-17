@@ -1,0 +1,27 @@
+﻿@model List<CreateJob> 
+<h2 class="text-primary my-4">My Jobs List</h2>
+
+@if (Model.Count == 0)
+{
+    <p>You don't have any jobs yet.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var job in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@job.ItemName</h5>
+                        <p class="card-text">Description: @job.Definition</p>
+                        <p class="card-text">From: @job.FromLocation</p>
+                        <p class="card-text">To: @job.ToLocation</p>
+                        <p class="card-text">Transport Date: @job.TransportDate.ToShortDateString()</p>
+                        <a href="@Url.Action("Viewmoreandedit", "Applications", new { id = job.CreatedJobId })" class="btn btn-primary">View More And Edit <i class="fa-solid fa-pen-to-square" style="color: #6ba0e6;"></i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

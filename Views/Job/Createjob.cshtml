@@ -1,0 +1,63 @@
+﻿@model Transportathon.Models.CreateJob
+
+<h2>Create a New Job</h2>
+<div class="col-8">
+    <form asp-action="Createjob">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group mb-3">
+            <label asp-for="ItemName" class="control-label"></label>
+            <input asp-for="ItemName" class="form-control" placeholder="e.g Book" />
+            <span asp-validation-for="ItemName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Weight" class="control-label"></label>
+            <input asp-for="Weight" class="form-control" min="1" />
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Definition" class="control-label"></label>
+            <textarea asp-for="Definition" class="form-control" placeholder="E.g. 2-3 Book "></textarea>
+            <span asp-validation-for="Definition" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" min="1" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="VehicleType" class="control-label"></label>
+            <input asp-for="VehicleType" class="form-control"placeholder="E.g. Car" />
+            <span asp-validation-for="VehicleType" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="FromLocation" class="control-label"></label>
+            <input asp-for="FromLocation" class="form-control" placeholder="Mersin/Tarsus Joseph caddesi" />
+            <span asp-validation-for="FromLocation" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ToLocation" class="control-label" ></label>
+            <input asp-for="ToLocation" class="form-control" placeholder="Ankara Ataberk mah." />
+            <span asp-validation-for="ToLocation" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="TransportDate" class="control-label"></label>
+            <input asp-for="TransportDate" class="form-control" value="@DateTime.Today.ToString("dd-MM-yyyy")" />
+            <span asp-validation-for="TransportDate" class="text-danger" ></span>
+        </div>
+
+        <input asp-for="PublishDate" type="hidden" />
+        <input asp-for="UserId" type="hidden" />
+        <input asp-for="DriverId" type="hidden" />
+        <input asp-for="UserName" type="hidden" />
+        <input asp-for="Status" type="hidden" />
+
+        <button type="submit" class="btn btn-primary">Create Job <i class="fa-solid fa-plus" style="color: #8ae8f5;"></i></button>
+    </form>
+
+</div>
+

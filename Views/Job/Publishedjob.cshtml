@@ -1,0 +1,23 @@
+﻿@model List<CreateJob>
+<h2 class="text-center text-primary my-4">  Job Store :See All The Jobs Around The World</h2>
+
+<div class="row">
+    @foreach (var job in Model)
+    {
+        if (job.Status == true)
+        {
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">@job.ItemName</h4>
+                    <p class="card-text">Weight: @job.Weight kg</p>
+                    <p class="card-text">Price: @job.Price <strong>$</strong></p>
+                    <p class="card-text">Transport Date: @job.TransportDate.ToShortDateString() </p>
+
+                        <a class="btn btn-primary" href="@Url.Action("Viewmore", "Job", new { id = job.CreatedJobId })">View More <i class="fa-solid fa-circle-info" style="color: #6fd4e2;"></i></a>
+                </div>
+            </div>
+        </div>
+        }
+    }
+</div>

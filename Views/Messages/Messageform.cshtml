@@ -1,0 +1,16 @@
+﻿@model Transportathon.Models.CreateMessage
+
+<div class="form-group mt-5">
+<form method="post" action="@Url.Action("Messageform", "Messages")">
+
+        <input type="hidden" name="driverId" value="@ViewBag.DriverId" />
+        <input type="hidden" name="driverName" value="@ViewBag.DriverName" />
+        <input type="hidden" name="userId" value="@ViewBag.UserId" />
+        <input type="hidden" name="userName" value="@ViewBag.UserName" />
+        <label asp-for="Messages" class="control-label"></label>
+        <input asp-for="Messages" class="form-control" />
+        <span asp-validation-for="Messages" class="text-danger"></span>
+
+       <button type="submit" class="btn btn-primary mt-2">Mesajı Gönder</button>
+</form>
+</div>

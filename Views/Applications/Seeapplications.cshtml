@@ -1,0 +1,46 @@
+﻿@using Transportathon.Areas.Identity.Data
+@model List<ApplicationUser> 
+
+<div class="row">
+    @if (Model.Count == 0)
+    {
+        <h5 class=" text-center text-primary">Henüz başvuran yok.</h5>
+    }
+    @foreach (var application in Model)
+    {
+        <div class="col-md-7 mb-4 col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Driver Name: @application.NameSurname</h5>
+                    <p class="card-text">Driver Email: @application.Email</p>
+                    <p class="card-text">Driver Phone: @application.PhoneNumber</p>
+
+                    @if (ViewBag.isAcceptedFound)
+                    {
+                        <div class="d-flex">
+                            <button class="btn btn-success">You Hired This Driver!</button>
+                            <a href="@Url.Action("Seereviews", "Applications", new { driverid = application.Id })" class="btn btn-warning text-light ms-3">See Reviews <i class="fa-solid fa-eye" style="color: #f79545;"></i></a>
+                            <a href="@Url.Action("Review", "Applications", new { driverid = application.Id })" class="btn btn-info text-light ms-3">Review Driver <i class="fa-solid fa-comment" style="color: #55abec;"></i></a>
+                            <a href="@Url.Action("Messageform", "Messages", new { userid = application.Id,userName=application.NameSurname })" class="btn btn-primary text-light ms-3"> Send Message <i class="fa-solid fa-message" style="color: #66a4f5;"></i></a>
+
+                        </div>
+                        
+                    }
+                    else
+                    {
+                        <div class="d-flex">
+                            <form method="post" action="@Url.Action("Seeapplications", "Applications")">
+
+                                <input type="hidden" name="driverId" value="@application.Id">
+                                <button type="submit" class="btn btn-primary">Get Hire!</button>
+                            </form>
+                            <a href="@Url.Action("Seereviews", "Applications")" class="btn btn-warning text-light ms-3">See Reviews <i class="fa-solid fa-eye" style="color: #f79545;"></i></a>
+                        </div>
+                    }
+                   
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>

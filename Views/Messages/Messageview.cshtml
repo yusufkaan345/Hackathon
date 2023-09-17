@@ -1,0 +1,38 @@
+﻿@model List<CreateMessage>
+
+<h2 class="text-primary my-4">My Messages</h2>
+
+@if (Model.Count == 0)
+{
+    <p>You don't have any messages yet.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var message in Model)
+        {
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title">Customer: @message.UserName</p>
+                        <p class="card-title">Driver: @message.DriverName</p>
+
+                        <h5 class="card-text">Message: @message.Messages</h5>
+
+                        @if (ViewBag.userRole == "customer")
+                        {
+                            <a href="@Url.Action("Messageform", "Messages",new { userid = message.DriverId,userName=message.DriverName })" class="btn btn-primary px-5 me-3">Reply </a>
+
+                        }
+                        @if (ViewBag.userRole == "driver")
+                        {
+                            <a href="@Url.Action("Messageform", "Messages",new { userid = message.UserId,userName=message.UserName })" class="btn btn-primary px-5 me-3">Reply </a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+}

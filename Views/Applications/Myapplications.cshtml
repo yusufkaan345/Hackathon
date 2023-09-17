@@ -1,0 +1,40 @@
+﻿@model List<CreateJob>
+<div class="row">
+    @foreach (var eleman in Model)
+    {
+        if (eleman.Status == true)
+        {
+            <div class="col-6 my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">İş Sahibi Adı: @eleman.UserName</h5>
+                        <h6 class="card-text">ItemName: @eleman.ItemName</h6>
+                        <p class="card-text">Price: @eleman.Price</p>
+                        <p class="card-text">Weight: @eleman.Weight</p>
+                        <p class="card-text">VehicleType: @eleman.VehicleType</p>
+                        <p class="card-text">Adress: @eleman.ToLocation</p>
+                        <p class="card-text">Tarih: @eleman.TransportDate</p>
+                        @if (@ViewBag.UserId == eleman.DriverId)
+                        {
+                            <div class="d-flex">
+                                <button class="btn btn-success me-2">Kabul Edildin <i class="fa-solid fa-check" style="color: #72eebe;"></i></button>
+                                <form action="@Url.Action("Myapplications", "Applications")" method="post">
+                                    <input type="hidden" name="jobId" value="@eleman.CreatedJobId" />
+                                    <button type="submit" class="btn btn-primary">Finish Job <i class="fa-solid fa-flag-checkered" style="color: #8eddf0;"></i></button>
+                                </form>
+                            </div>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary">Beklemede</button>
+                        }
+                </div>
+            </div>
+            </div>
+        }
+        else
+        {
+            continue;
+        }
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿
+<div class="col-md-7">
+    <h4 class="card-title my-4">Job Details</h4>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="py-2"><strong>Name Of Product :</strong> @Model.ItemName</h5>
+            <h5 class="py-2"><strong>From Who :</strong> @Model.UserName</h5>
+            <p class="py-2"><strong>Product Description :</strong> @Model.Definition</p>
+            <p class="py-2"><strong>Weight :</strong> @Model.Weight kg</p>
+            <p class="py-2"><strong>Price :</strong> @Model.Price $</p>
+            <p class="py-2"><strong>Vehicle Type :</strong> @Model.VehicleType </p>
+            <p class="py-2"><strong> From where to where :</strong> @Model.FromLocation</p>
+            <p class="py-2"><strong>Address :</strong> @Model.ToLocation</p>
+            <p class="py-2"><strong>Transport Date :</strong>  @Model.TransportDate.ToShortDateString()</p>
+
+            <div class="d-flex">
+            <!-- Başvuruları Gör Butonu -->
+                <a href="@Url.Action("Seeapplications", "Applications", new { itemId = Model.CreatedJobId })" class="btn btn-primary px-5 me-3">See Applications <i class="fa-solid fa-eye" style="color: #6fbea4;"></i></a>
+
+            <!-- Sil Butonu -->
+              
+                <form action="@Url.Action("Viewmoreandedit", "Applications")" method="post">
+                    <input type="hidden" name="CreatedJobId" value="@Model.CreatedJobId" />
+                    <button type="submit" class="btn btn-danger px-2">Delete <i class="fa-solid fa-trash" style="color: #df7016;"></i></button>
+                </form>
+            </div>
+           
+
+        </div>
+    </div>
+</div>

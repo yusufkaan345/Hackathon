@@ -1,0 +1,32 @@
+﻿
+    <div class="col-md-7">
+    <h4 class="card-title my-4">Job Details</h4>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="py-2"><strong>Name Of Product :</strong> @Model.ItemName</h5>
+            <h5 class="py-2"><strong>From Who :</strong> @Model.UserName</h5>
+            <p class="py-2"><strong>Product Description :</strong> @Model.Definition</p>
+            <p class="py-2"><strong>Weight :</strong> @Model.Weight kg</p>
+            <p class="py-2"><strong>Price :</strong> @Model.Price $</p>
+            <p class="py-2"><strong>Vehicle Type :</strong> @Model.VehicleType </p>
+            <p class="py-2"><strong> From where to where :</strong> @Model.FromLocation</p>
+            <p class="py-2"><strong>Address :</strong> @Model.ToLocation</p>
+            <p class="py-2"><strong>Transport Date :</strong>  @Model.TransportDate.ToShortDateString()</p>
+        
+
+             @if (ViewBag.UserRole == "customer")
+            {
+              <p class="mt-1"> <em>Başvuru için driver hesabı ile giriş yapın</em> </p>
+            }
+            @if (ViewBag.UserRole == "driver")
+            {
+                <form action="@Url.Action("Viewmore", "Job")" method="post">
+                    <input type="hidden" name="CreatedJobId" value="@Model.CreatedJobId" />
+                    <button type="submit" class="btn btn-primary">Apply Job</button>
+                </form>
+
+            }
+            
+        </div>
+    </div>
+</div>
